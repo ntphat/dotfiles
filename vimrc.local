@@ -1,5 +1,3 @@
-
-execute pathogen#infect()
 highlight LineNr ctermfg=white
 highlight Visual ctermfg=blue ctermbg=white
 set relativenumber
@@ -36,7 +34,7 @@ hi IndentGuidesEven ctermbg=darkgrey
 " Common
 map <Leader>y "+y<CR>
 map <Leader>ag :Ag<SPACE>
-map <Leader>bi :PlugInstall<CR>
+map <Leader>bi :PluginInstall<CR>
 map <Leader>ct :!ctags -R<CR>
 map <Leader>f :FixWhitespace<CR>
 map <Leader>n <C-w>v<C-h><SPACE><SPACE>

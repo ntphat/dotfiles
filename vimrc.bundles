@@ -43,7 +43,6 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
 Plugin 'itchyny/lightline.vim'
 Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'rking/ag.vim'
 Plugin 'powerline/powerline'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
@@ -51,9 +50,5 @@ Plugin 'ngmy/vim-rubocop'
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
 
-if filereadable(expand("~/.vimrc.bundles.local"))
-  source ~/.vimrc.bundles.local
-endif
-
-call plug#end()
+call vundle#end()
 filetype plugin indent on    " required
