@@ -1,0 +1,76 @@
+if &compatible
+  set nocompatible
+end
+
+" Shim command and function to allow migration from Vundle to vim-plug.
+function! VundleToPlug(vundle_command, arg, ...)
+  echom "You are using Vundle's `".a:vundle_command."` command to declare plugins. Dotfiles now uses vim-plug for plugin mangagement. Please rename uses of `".a:vundle_command."` to `Plug`. Plugin was '".a:arg."'."
+  let vim_plug_options = {}
+
+  if a:0 > 0
+    if has_key(a:1, 'name')
+      let name = a:1.name
+      let vim_plug_options.dir = "$HOME/.vim/bundle/".a:1.name
+    endif
+
+    if has_key(a:1, 'rtp')
+      let vim_plug_options.rtp = a:1.rtp
+    endif
+  endif
+
+  Plug a:arg, vim_plug_options
+endfunction
+
+com! -nargs=+  -bar Plugin call VundleToPlug("Plugin", <args>)
+com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
+
+call plug#begin('~/.vim/bundle')
+
+" Define bundles via Github repos
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'christoomey/vim-run-interactive'
+Plug 'kchmck/vim-coffee-script'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'scrooloose/syntastic'
+Plug 'slim-template/vim-slim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/tComment'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
+Plug 'itchyny/lightline.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'rking/ag.vim'
+Plug 'powerline/powerline'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+Plug 'ngmy/vim-rubocop'
+" Elixir
+Plug 'elixir-lang/vim-elixir'
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call plug#end()

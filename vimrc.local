@@ -1,0 +1,92 @@
+
+execute pathogen#infect()
+highlight LineNr ctermfg=white
+highlight Visual ctermfg=blue ctermbg=white
+set relativenumber
+syntax on
+filetype plugin indent on
+set t_Co=256
+set background=dark
+" colorscheme jellybeans
+colorscheme solarized
+" colorscheme lucius
+" colorscheme gruvbox
+" colorscheme wombat
+" colorscheme molokai
+" colorscheme railscasts
+" colorscheme PaperColor
+" autocmd VimEnter * NERDTree
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':p:.'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline_theme='base16_google'
+let g:airline_theme='solarized'
+let g:lightline = { 'colorscheme': 'solarized' }
+let g:vimrubocop_config = '~/.rubocop.yml'
+let g:vimrubocop_keymap = 0
+
+" Indent guide
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
+
+" Vim
+
+" Common
+map <Leader>y "+y<CR>
+map <Leader>ag :Ag<SPACE>
+map <Leader>bi :PlugInstall<CR>
+map <Leader>ct :!ctags -R<CR>
+map <Leader>f :FixWhitespace<CR>
+map <Leader>n <C-w>v<C-h><SPACE><SPACE>
+map <Leader>nt :NERDTree<CR>
+map <Leader>q :q<CR>
+map <Leader>rm :Remove!<CR>
+map <Leader>sg :sp<CR>:grep<SPACE>
+map <Leader>sv :source ~/.vimrc<CR>
+map <Leader>te :tabe<SPACE>
+map <Leader>v "+p<CR>
+map <Leader>vi :vsplit ~/.vimrc.local<CR>
+map <Leader>w :w<CR>
+map <Leader>hls :set hlsearch! hlsearch?<CR>
+map <Leader>bn <Esc>:bNext<CR>
+map <Leader>bp <Esc>:bprevious<CR>
+nnoremap <S-CR> O<Esc>j
+nnoremap <Leader>nm :-1read $HOME/.vim/.new_method.rb<CR>2wve
+
+" Git
+map <Leader>co :Gread<CR>
+map <Leader>ga :Gwrite<CR>
+map <Leader>gac :Gcommit -am ""<LEFT>
+map <Leader>gb :Gblame<CR>
+map <Leader>gc :Gcommit -m ""<LEFT>
+map <Leader>gd :Gvdiff<CR>
+map <Leader>gm :Gmove<SPACE>
+map <Leader>gr :Gremove<CR>
+map <Leader>gs :Gstatus<CR>
+
+" Rails
+map <Leader>a <ESC>ggVG<CR>
+map <Leader>ac :Econtroller application<CR>
+map <Leader>ah :Ehelper application<CR>
+map <Leader>aj <ESC>:e app/assets/javascripts/application.js<CR>
+map <Leader>as <ESC>:e app/assets/stylesheets/application.css.scss<CR>
+map <Leader>av :AV<CR>
+map <Leader>bb :!bundle install<CR>
+map <Leader>c :Econtroller<SPACE>
+map <Leader>vw :Eview<SPACE>
+map <Leader>d <ESC>obinding.pry<ESC>
+map <Leader>dv <ESC>o<% binding.pry %><ESC>
+map <Leader>g :e Gemfile<CR>
+map <Leader>m :Emodel<SPACE>
+map <Leader>rt :e config/routes.rb<CR>
+map <Leader>rts :e config/routes_smart_phone.rb<CR>
+map <Leader>rv :RV<CR>
+map <Leader>sc :sp db/schema.rb<CR>
+map <Leader>vc :RVcontroller<SPACE>
+map <Leader>vm :RVmodel<SPACE>
+map <Leader>vv :RVview<SPACE>
+
+" rubocop
+map <Leader>ru :RuboCop<CR>
